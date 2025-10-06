@@ -1,4 +1,9 @@
+using BlazorTemplate.Application;
+using BlazorTemplate.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices();
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

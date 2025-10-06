@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-preview.4.25258.110" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorTemplate.Application\BlazorTemplate.Application.csproj" />
+    <ProjectReference Include="..\BlazorTemplate.Infrastructure\BlazorTemplate.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
