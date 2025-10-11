@@ -3,6 +3,7 @@ using BlazorTemplate.Application;
 using BlazorTemplate.Infrastructure;
 using Scalar.AspNetCore;
 using BlazorTemplate.Api.Endpoints;
+using BlazorTemplate.Api.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = new ConfigurationBuilder()
@@ -29,7 +30,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
-// Map endpoints
-app.MapWeatherForecast();
+// Map all endpoints via extension
+app.MapEndpoints();
 
 app.Run();
