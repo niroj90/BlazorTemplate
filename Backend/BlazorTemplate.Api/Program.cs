@@ -1,3 +1,4 @@
+using BlazorTemplate.Api.Middleware;
 using BlazorTemplate.Application;
 using BlazorTemplate.Infrastructure;
 using Scalar.AspNetCore;
@@ -25,6 +26,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 var summaries = new[]
 {

@@ -16,4 +16,8 @@
     <ProjectReference Include="..\BlazorTemplate.Infrastructure\BlazorTemplate.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Endpoints\" />
+  </ItemGroup>
+
 </Project>
