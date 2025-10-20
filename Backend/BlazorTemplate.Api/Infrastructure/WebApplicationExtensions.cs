@@ -9,9 +9,7 @@ namespace BlazorTemplate.Api.Infrastructure
             var groupName = group.GroupName ?? group.GetType().Name;
 
             return app
-                .MapGroup($"/api/{groupName}")
-                .WithGroupName(groupName)
-                .WithTags(groupName);
+                .MapGroup($"/api/{groupName}");
         }
 
         public static WebApplication MapEndpoints(this WebApplication app)

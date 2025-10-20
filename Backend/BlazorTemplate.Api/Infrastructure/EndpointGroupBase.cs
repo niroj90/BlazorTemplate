@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Routing;
-
 namespace BlazorTemplate.Api.Infrastructure;
 
 public abstract class EndpointGroupBase
