@@ -8,7 +8,6 @@ namespace BlazorTemplate.Infrastructure.Data
 {
     public class ApplicationUser : IdentityUser, IUser
     {
-        public required string Username { get; set; }
-        public required string Password { get; set; }
+        
     }
 }
