@@ -1,5 +1,4 @@
 using BlazorTemplate.Api.Infrastructure;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.HttpResults;
 
@@ -13,7 +12,7 @@ public class WeatherForecasts : EndpointGroupBase
 
         groupBuilder.MapGet(GetWeatherForecasts);
     }
-    public async Task<Ok<string[]>> GetWeatherForecasts(ISender sender)
+    public async Task<Ok<string[]>> GetWeatherForecasts()
     {
         var summaries = new[]
          {
