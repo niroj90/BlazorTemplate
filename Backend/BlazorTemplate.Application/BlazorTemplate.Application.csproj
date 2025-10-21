@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\BlazorTemplate.Shared\BlazorTemplate.Shared.csproj" />
     <ProjectReference Include="..\BlazorTemplate.Domain\BlazorTemplate.Domain.csproj" />
   </ItemGroup>
 
