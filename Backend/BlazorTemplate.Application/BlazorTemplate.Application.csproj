@@ -16,4 +16,9 @@
     <ProjectReference Include="..\BlazorTemplate.Domain\BlazorTemplate.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="WeatherForcasts\Commands\" />
+  </ItemGroup>
+
 </Project>
