@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.14.0"
+  },
+  "generatorName": "csharp",
+  "inputSpec": "openapi.json",
+  "outputDir": ".",
+  "additionalProperties": {
+    "packageName": "BlazorTemplate.Client.ApiClient",
+    "targetFramework": "net8.0",
+    "packageVersion": "1.0.0",
+    "optionalAssemblyInfo": false,
+    "useHttpClientCreationMethod": true,
+    "validatable": false,
+    "generateClientInterfaces": false
+  }
+}
