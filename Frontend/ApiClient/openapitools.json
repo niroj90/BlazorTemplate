@@ -14,6 +14,11 @@
     "optionalAssemblyInfo": false,
     "useHttpClientCreationMethod": true,
     "validatable": false,
-    "generateClientInterfaces": false
+    "generateClientInterfaces": true,
+    "skipSchemaGeneration": true,
+    "generateApiTests": false,
+    "generateModelTests": false,
+    "generateApiDocumentation": false,
+    "generateModelDocumentation": false
   }
 }

@@ -9,7 +9,7 @@ REM --- Configuration ---
 SET API_URL=https://localhost:7265/openapi/v1.json
 SET OUTPUT_DIR=.
 SET PACKAGE_NAME=BlazorTemplate.Client.ApiClient
-SET TARGET_FRAMEWORK=net10.0
+SET TARGET_FRAMEWORK=net8.0
 
 echo.
 echo ===============================================
