@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Shared\BlazorTemplate.Shared\BlazorTemplate.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ApiClient\" />
+  </ItemGroup>
+
 </Project>
