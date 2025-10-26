@@ -35,5 +35,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 // Map all endpoints via extension
-app.MapEndpoints().MapIdentityApi<IdentityUser>();
+app.MapEndpoints();
+app.MapIdentityApi<IdentityUser>();
 app.Run();

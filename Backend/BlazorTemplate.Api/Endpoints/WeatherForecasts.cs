@@ -5,23 +5,19 @@ using BlazorTemplate.Shared.Dtos.Common.Responses;
 using BlazorTemplate.Shared.Dtos.WeatherForcasts.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorTemplate.Api.Endpoints;
 
 public class WeatherForecasts : EndpointGroupBase
 {
-     private readonly IMediator _mediator;
-    public WeatherForecasts(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
     public override void Map(RouteGroupBuilder groupBuilder)
     {
-        groupBuilder.MapGet(GetWeatherForecasts);
+        groupBuilder.MapPost(GetWeatherForecasts);
     }
-    public async Task<Ok<PagedResultDto<WeatherForcastDto>>> GetWeatherForecasts(PagedRequestDto input)
+    public async Task<Ok<PagedResultDto<WeatherForcastDto>>> GetWeatherForecasts(ISender sender,PagedRequestDto input)
     {
-      var summaries = await _mediator.Send(new GetWeatherForcastsQuery
+      var summaries = await sender.Send(new GetWeatherForcastsQuery
         {
             PageNumber = input.PageNumber,
             PageSize = input.PageSize
