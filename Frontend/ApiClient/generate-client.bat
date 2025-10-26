@@ -29,7 +29,7 @@ echo ===============================================
 echo Generating C# API client...
 echo ===============================================
 
-npx @openapitools/openapi-generator-cli generate -c openapitools.json
+npx @openapitools/openapi-generator-cli generate -i .\openapi.json -g csharp -o . --global-property apis --additional-properties=targetFramework=net8.0,packageName=BlazorTemplate.Client.ApiClient,generateClientInterfaces=true,useHttpClientCreationMethod=true,optionalAssemblyInfo=false,validatable=false,skipSchemaGeneration=true,generateApiTests=false,generateModelTests=false,generateApiDocumentation=false,generateModelDocumentation=false
 
 IF %ERRORLEVEL% NEQ 0 (
     echo.
