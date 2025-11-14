@@ -99,7 +99,7 @@
       "templateDirectory": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": null,
+      "output": "ApiClient.cs",
       "newLineBehavior": "Auto"
     }
   }
