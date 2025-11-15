@@ -1,6 +1,6 @@
 ﻿@page "/weather"
-@using BlazorTemplate.Shared.Dtos.WeatherForcasts.Responses
-@inject HttpClient Http
+@using BlazorTemplate.ApiClient
+@inject Client _httpClient;
 
 <PageTitle>Weather</PageTitle>
 
@@ -26,7 +26,7 @@ else
             @foreach (var forecast in forecasts)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.Date.ToString("yyyy-MM-dd")</td>
                     <td>@forecast.TemperatureC</td>
                     <td>@forecast.Summary</td>
                 </tr>
@@ -40,7 +40,9 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForcastDto[]>("sample-data/weather.json");
+        var input = new PagedRequestDto{PageNumber=1, PageSize = 10 , SearchTerm="" };
+        var result = await _httpClient.GetWeatherForecastsAsync(input);
+        forecasts = result.Items.ToArray();
     }
 
    
