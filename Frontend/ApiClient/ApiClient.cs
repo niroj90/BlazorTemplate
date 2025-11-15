@@ -68,6 +68,10 @@ namespace BlazorTemplate.ApiClient
 
         partial void Initialize();
 
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<PagedResultDtoOfWeatherForcastDto> GetWeatherForecastsAsync(PagedRequestDto input)
         {
@@ -99,12 +103,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "api/WeatherForecasts"
                     urlBuilder_.Append("api/WeatherForecasts");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -119,7 +123,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -181,12 +185,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "register"
                     urlBuilder_.Append("register");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -201,7 +205,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -279,12 +283,12 @@ namespace BlazorTemplate.ApiClient
                     }
                     urlBuilder_.Length--;
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -299,7 +303,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -362,12 +366,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "refresh"
                     urlBuilder_.Append("refresh");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -382,7 +386,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -445,12 +449,12 @@ namespace BlazorTemplate.ApiClient
                     }
                     urlBuilder_.Length--;
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -465,7 +469,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -522,12 +526,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "resendConfirmationEmail"
                     urlBuilder_.Append("resendConfirmationEmail");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -542,7 +546,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -599,12 +603,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "forgotPassword"
                     urlBuilder_.Append("forgotPassword");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -619,7 +623,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -686,12 +690,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "resetPassword"
                     urlBuilder_.Append("resetPassword");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -706,7 +710,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -774,12 +778,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "manage/2fa"
                     urlBuilder_.Append("manage/2fa");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -794,7 +798,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -866,12 +870,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "manage/info"
                     urlBuilder_.Append("manage/info");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -886,7 +890,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
@@ -965,12 +969,12 @@ namespace BlazorTemplate.ApiClient
                     // Operation Path: "manage/info"
                     urlBuilder_.Append("manage/info");
 
-                    await PrepareRequestAsync(client_, request_, urlBuilder_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, urlBuilder_);
 
                     var url_ = urlBuilder_.ToString();
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
 
-                    await PrepareRequestAsync(client_, request_, url_, cancellationToken).ConfigureAwait(false);
+                    PrepareRequest(client_, request_, url_);
 
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
                     var disposeResponse_ = true;
@@ -985,7 +989,7 @@ namespace BlazorTemplate.ApiClient
                                 headers_[item_.Key] = item_.Value;
                         }
 
-                        await ProcessResponseAsync(client_, response_, cancellationToken).ConfigureAwait(false);
+                        ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
