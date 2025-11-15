@@ -33,7 +33,12 @@ if (app.Environment.IsDevelopment())
     // Available at: http://localhost:<port>/swagger
     app.UseSwaggerUi(); // UseSwaggerUI Protected by if (env.IsDevelopment())
 }
-
+app.UseCors(cors => cors
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true)
+                .AllowCredentials()
+            );
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 // Map all endpoints via extension

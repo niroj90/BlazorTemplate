@@ -7,7 +7,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7265/") });
 
 // Register the generated API client and set BaseUrl
 builder.Services.AddScoped<Client>(sp =>
@@ -20,10 +20,6 @@ builder.Services.AddScoped<Client>(sp =>
     if (!string.IsNullOrWhiteSpace(configured))
     {
         api.BaseUrl = configured; // trailing slash will be added by the property if needed
-    }
-    else if (http.BaseAddress != null)
-    {
-        api.BaseUrl = http.BaseAddress.ToString();
     }
     else
     {
