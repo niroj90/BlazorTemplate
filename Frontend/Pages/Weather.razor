@@ -43,7 +43,5 @@ else
         var input = new PagedRequestDto{PageNumber=1, PageSize = 10 , SearchTerm="" };
         var result = await _httpClient.GetWeatherForecastsAsync(input);
         forecasts = result.Items.ToArray();
-    }
-
-   
+    }  
 }
